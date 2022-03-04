@@ -1,0 +1,49 @@
+/* Show command is user to display all the databases */
+show databases;
+/*Use keyword is used to select the database*/
+use abhay;
+show tables;
+/*It will discribe the structure of a table*/
+describe demo;
+select * from demo;
+
+CREATE TABLE customers (c_id int(20), c_name varchar(60), c_city varchar(60),  PRIMARY KEY (id ) );
+alter table customers change column id c_id varchar(60);
+alter table customers change column name c_name varchar(60);
+alter table customers change column city c_city varchar(60);
+desc customers;
+
+insert into customers (c_id,c_city,c_name) value (6,'mumbai','priti');
+insert into customers values(2,'Rashmi','Delhi');
+
+insert into customers values(3,'Abhay','Mumbai'),(4,'Namrata','Pune'),(5,'anchal','MP');
+
+select * from customers;
+
+alter table customers add c_age int(10);
+
+update customers set c_age=26 where c_id=3;
+
+set sql_safe_updates=0;
+update customers set c_age=25 where c_name='priti';
+
+delete from customers where c_id=1;
+truncate table customers;
+
+drop table customers;
+
+create table customers as select * from cust;
+select * from customers;
+
+truncate table cust;
+drop table cust;
+
+create table cust1 as select c_id,c_name,c_age from customers ; 
+select * from cust1;
+
+
+create table cust2 as select c_id,c_name,c_age from customers where c_age<=26 ; 
+select * from cust2;
+
+
+
