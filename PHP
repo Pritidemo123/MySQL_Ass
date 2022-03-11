@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>Registration Page</title>
+	</head>
+	<body>
+		<h1>Registartio Page</h1>
+		<form action="#" method="post">
+		<label>Enter Your Name</label>
+		<input type="textbox" name="u_name" /><br/>
+		<label>Enter Your Email</label>
+		<input type="textbox" name="u_email" /><br/>
+		<label>Enter Your Number</label>
+		<input type="textbox" name="u_no" /></br/>
+		<input type="submit" name="submit" value="submit" />
+		<input type="reset" value="cancel" />
+		</form>
+	</body>
+</html>
+
+<?php 
+
+$ser_name="localhost";
+$user_name="root";
+$user_pass="";
+$db_name="subh";
+
+
+$un=$_POST['u_name'];
+$ue=$_POST['u_email'];
+$upno=$_POST['u_no'];
+
+
+
+
+$con=new mysqli($ser_name,$user_name,$user_pass,$db_name);
+
+
+
+if($con->connect_error)
+{
+	die("Contion failed:". $conn->connect_error);
+}
+
+
+$qur="insert into stud_reg values('$un','$ue','$upno')";
+
+
+
+if(isset($_POST['submit']))
+{
+
+	if($con->query($qur)== TRUE)
+	{
+		echo"record inserted";
+	}
+	else
+	{
+		echo"error";
+	}
+
+}
+
+?>
